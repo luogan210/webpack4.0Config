@@ -60,7 +60,7 @@ module.exports.cssLoaders = function (options) {
                 fallback: "vue-style-loader"
             })
         } else {
-            return ["vue-style-loader"].concat(loaders)
+            return [{loader:"vue-style-loader"}].concat(loaders)
         }
     }
 

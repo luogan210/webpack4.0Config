@@ -8,7 +8,7 @@ const baseConfig = require("../webpackConfig/webpack.base.js")
 const config=require("../config");
 
 module.exports = merge(baseConfig, {
-	devtool: "inline-source-map",
+	devtool: "cheap-eval-source-map",
 	mode: "development",
 	module:{
 		rules:utils.styleLoaders({sourceMap:config.dev.cssSourceMap})
@@ -18,7 +18,7 @@ module.exports = merge(baseConfig, {
 		open: true,
 		hot: true,
 		host: "localhost",
-		port: 8080,
+		port: 8090,
 		openPage:"index.html"
 	},
 	output: {

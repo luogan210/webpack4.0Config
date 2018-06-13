@@ -63,7 +63,8 @@ for (var pathName in templates) {
         excludeChunks: chunkNames,
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
+        cache:false
     }
 
     // console.log("excludeChunks", config)

@@ -8,7 +8,7 @@ export default {
 </script>
 <style>
 .test{
-    color:  red;
+    color:  blue;
     border: 5px solid red;
 }
 </style>
