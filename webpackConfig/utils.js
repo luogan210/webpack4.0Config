@@ -67,14 +67,14 @@ module.exports.cssLoaders = function (options) {
 
     return {
         css: generateLoaders(),
-        postcss: generateLoaders(),
-        less: generateLoaders("less"),
-        sass: generateLoaders("sass", {
-            indentedSyntax: true
-        }),
-        scss: generateLoaders("scss"),
-        stylus: generateLoaders("stylus"),
-        styl: generateLoaders("stylus")
+        // postcss: generateLoaders(),
+        // less: generateLoaders("less"),
+        // sass: generateLoaders("sass", {
+        //     indentedSyntax: true
+        // }),
+        // scss: generateLoaders("scss"),
+        // stylus: generateLoaders("stylus"),
+        // styl: generateLoaders("stylus")
     }
 
 }

@@ -2,7 +2,9 @@ import _ from "lodash";
 console.log("多页面应用tttttttttttttt中的dddddddddddddindex.html");
 import {observer} from 'mobx-react';
 import {observable,action} from 'mobx';
+
 import "css/style.css"
+
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -12,11 +14,12 @@ var appState = observable({
 });
 
 @observer
+
 class TimerView extends React.Component { 
 
     render() {
         return (<button onClick={this.onReset.bind(this)}>
-                Seconds luogan and suizhouyizhong passed hhhh: {this.props.appState.timer}
+                ong passed hhhh: {this.props.appState.timer}
             </button>);
     }
 

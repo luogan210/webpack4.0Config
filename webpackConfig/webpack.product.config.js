@@ -11,28 +11,17 @@ const extractTextWebapckPlugin=require("extract-text-webpack-plugin");
 function mkAssetsPath(_path) {
 	return path.posix.join(config.build.assetsSubDirectory, _path)
 }
-utils.styleLoaders({
+
+var rules=utils.styleLoaders({
 	sourceMap:config.build.productionSourceMap,
 	extract:true
 })
+console.log("rules",rules)
 
 module.exports = merge(baseConfig, {
 	mode:"production",
 	module: {
-		rules:[
-			{
-				test:/\.css$/,
-				use:extractTextWebapckPlugin.extract({
-					use: [{
-						loader: "css-loader",
-						options: {
-							sourceMap: true
-						}
-					}],
-					fallback: "style-loader"
-				})
-			}
-		]
+		rules:rules
 	},
 	output: {
 		path: config.build.assetsRoot,
