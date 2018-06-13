@@ -5,6 +5,9 @@ const webpack = require("webpack");
 const vueLoaderConfig = require("./vue-loader.config.js")
 var srcDir = path.resolve(__dirname, "../src");
 var entries = utils.getEntries(srcDir + "/entryPages/**/*.js");
+const config=require("../config")
+
+const publicPath=process.env.NODE_ENV=="production"?config.build.assetsPublicPath:config.dev.assetsPublicPath
 
 function resolve(dir) {
     return path.join(__dirname, "..", dir);
@@ -20,31 +23,33 @@ module.exports = {
             "utils": resolve("src/utils")
         }
     },
+    output: {
+        filename: "[name].bundle.js",
+        path:config.build.assetsRoot ,
+        publicPath: publicPath
+    },
     plugins: [],
     module: {
         rules: [
-            {
-                test: /\.vue$/,
-                loader: "vue-loader",
-                options: vueLoaderConfig
-            },
             {
                 test: /\.jsx?$/,
                 loader: "babel-loader",
                 include: [resolve("src")]
             }, {
                 test: /\.(png|jpg|svg|gif)$/,
-                loader: "file-loader",
+                loader: "url-loader",
                 options: {
-                    name: utils.mkAssetsPath("img/[name].[ext]")
+                    name: utils.mkAssetsPath("img/[name].[ext]"),
+                    limit:10000
                 }
             }
         ]
     }
 }
+
 var templates = utils.getEntries("./src/entryPages/**/*.html", 1);
 var templateName = "";
-var config = {};
+var conf = {};
 var chunkNames;
 var index;
 
@@ -53,7 +58,7 @@ for (var pathName in templates) {
     templateName = pathName;
     index = chunkNames.indexOf(templateName);
     chunkNames.splice(index, 1)
-    config = {
+    conf = {
         filename: templateName + ".html", //可以指定文件的输出路径pages/index.html,根目录根据outut参数的path决定
         template: templates[pathName],
         inject: true,
@@ -64,8 +69,8 @@ for (var pathName in templates) {
         removeAttributeQuotes: true
     }
 
-    // console.log("excludeChunks", config)
+    // console.log("excludeChunks", conf)
 
 
-    module.exports.plugins.push(new htmlWebpackPlugin(config))
+    module.exports.plugins.push(new htmlWebpackPlugin(conf))
 }

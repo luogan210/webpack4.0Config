@@ -11,7 +11,12 @@ module.exports = merge(baseConfig, {
 	devtool: "inline-source-map",
 	mode: "development",
 	module:{
-		rules:utils.styleLoaders({sourceMap:config.dev.cssSourceMap})
+		rules:[
+			{
+				test:/\.css$/,
+			    use:["style-loader","css-loader"]
+			}
+        ]
 	},
 	devServer: {
 		contentBase: path.join(__dirname, "..", "dist"),
@@ -21,12 +26,7 @@ module.exports = merge(baseConfig, {
 		port: 8080,
 		openPage:"index.html"
 	},
-	output: {
-        filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "../dist"),
-        publicPath: "/"
-    },
-    plugins: [
+	plugins: [
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin()

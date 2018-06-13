@@ -24,6 +24,7 @@ module.exports.getEntries = function (globPath, type) {
 }
 module.exports.mkAssetsPath = function (_path) {
     var assetsSubDirectory = process.env.NODE_ENV == "production" ? config.build.assetsSubDirectory : config.dev.assetsSubDirectory;
+    console.log("mkAssetsPath",path.posix.join(assetsSubDirectory, _path))
     return path.posix.join(assetsSubDirectory, _path)
 }
 
@@ -57,10 +58,10 @@ module.exports.cssLoaders = function (options) {
         if (options.extract) {
             return ExtractTextPlugin.extract({
                 use: loaders,
-                fallback: "vue-style-loader"
+                fallback: "style-loader"
             })
         } else {
-            return ["vue-style-loader"].concat(loaders)
+            return ["style-loader"].concat(loaders)
         }
     }
 

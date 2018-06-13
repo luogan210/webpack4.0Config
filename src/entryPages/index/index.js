@@ -1,5 +1,5 @@
 import _ from "lodash";
-console.log("多页面应用中的dddddddddddddindex.html");
+console.log("多页面应用tttttttttttttt中的dddddddddddddindex.html");
 import {observer} from 'mobx-react';
 import {observable,action} from 'mobx';
 import "css/style.css"
