@@ -5,6 +5,7 @@ const webpack = require("webpack");
 const vueLoaderConfig = require("./vue-loader.config.js")
 var srcDir = path.resolve(__dirname, "../src");
 var entries = utils.getEntries(srcDir + "/entryPages/**/*.js");
+const {VueLoaderPlugin}=require("vue-loader");
 
 function resolve(dir) {
     return path.join(__dirname, "..", dir);
@@ -17,10 +18,11 @@ module.exports = {
             "css": resolve("src/assets/styles"),
             "js": resolve("src/assets/js"),
             "img": resolve("src/assets/img"),
-            "utils": resolve("src/utils")
+            "utils": resolve("src/utils"),
+            'vue': 'vue/dist/vue.js'
         }
     },
-    plugins: [],
+    plugins: [new VueLoaderPlugin()],
     module: {
         rules: [
             {
