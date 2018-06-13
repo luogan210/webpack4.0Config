@@ -1,0 +1,51 @@
+{
+  "name": "webpack_test",
+  "version": "1.0.0",
+  "description": "test webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --inline --progress --config ./webpackConfig/webpack.config.js",
+    "dev-node": "node ./webpackConfig/node-dev-server.js",
+    "build": "node ./webpackConfig/build.js",
+    "dev": "webpack-dev-server --inline --progress --config ./webpackConfig/webpack.dev.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "lodash": "^4.17.10",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^4.1.0",
+    "mobx": "^5.0.2",
+    "mobx-react": "^5.2.3",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.21.0",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.11.0",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-merge": "^4.1.2"
+  }
+}
